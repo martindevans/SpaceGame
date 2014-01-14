@@ -1,0 +1,5 @@
+Assets/SLK/
+Assets/'Photon Unity Networking'/
+Library/metadata/
+*.meta
+Temp/
