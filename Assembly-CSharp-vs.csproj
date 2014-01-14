@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -81,13 +81,6 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
-     <Compile Include="Assets\SLK\Example\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\SLK\SciFiLevelKit\Scripts\AnimateSpriteSheet.cs" />
-     <Compile Include="Assets\SLK\SciFiLevelKit\Scripts\BillboardLaub.cs" />
-     <Compile Include="Assets\SLK\SciFiLevelKit\Scripts\Door.cs" />
-     <Compile Include="Assets\SLK\SciFiLevelKit\Scripts\DoorManager.cs" />
-     <Compile Include="Assets\SLK\SciFiLevelKit\Scripts\FpsCounter.cs" />
-     <Compile Include="Assets\SLK\SciFiLevelKit\Scripts\OTween.cs" />
      <Compile Include="Assets\Ship\CameraScript.cs" />
      <Compile Include="Assets\Ship\Client.cs" />
      <Compile Include="Assets\Ship\Engine.cs" />
@@ -101,7 +94,6 @@
      <Compile Include="Assets\Test\PilotDeck.cs" />
      <Compile Include="Assets\Test\ShipStation.cs" />
      <Compile Include="Assets\Test\TestUI.cs" />
-     <None Include="Assets\SLK\ReadMe.txt" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />

@@ -25,7 +25,7 @@ public class LoadingScreen : MonoBehaviour {
 
     void InitializeGame()
     	{
-		Vector3 localPositionMod = new Vector3(0,2,0);
+		Vector3 localPositionMod = new Vector3(0,5,0);
 
 		// Initialize the player at a relative position on the ship.
 	        GameObject physPlayer = PhotonNetwork.Instantiate("Player_Phys", PlayerShipVirtual.transform.position + localPositionMod, Quaternion.identity, 0);
