@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Engine : ShipComponent {
 
-	public float Strength = 1000f;
+	public float Strength = 10f;
 	public float Usage = 0f;
 	public Vector3 Direction { get { return -this.transform.forward; } }
 	// Use this for initialization 
@@ -31,6 +31,10 @@ public class Engine : ShipComponent {
 	}
 	// Update is called once per frame
 	void Update () {
-	
+
+		// Testing 
+		if (this.Usage < 0.1f)
+			ModUsage(0.000001f);
+		
 	}
 }

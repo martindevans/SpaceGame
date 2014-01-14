@@ -9,9 +9,7 @@ public class Client : MonoBehaviour
 
     void Start()
     {
-	PhotonNetwork.offlineMode = true;
-		OnCreatedRoom();
-        //PhotonNetwork.ConnectUsingSettings("Alpha V1.000");
+        PhotonNetwork.ConnectUsingSettings("Alpha V1.000");
     }
 
     void Update()
