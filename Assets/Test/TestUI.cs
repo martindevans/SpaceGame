@@ -17,7 +17,7 @@ public class TestUI : MonoBehaviour {
 	{
 		if (!Parent.Active) {
 			Debug.Log ("Clicked!");
-			ShipMovementScript.Thrust += 1000f;
+			//ShipMovementScript.Thrust += 1000f;
 		}
 	}
 	// Update is called once per frame

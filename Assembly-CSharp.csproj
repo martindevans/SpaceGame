@@ -93,6 +93,7 @@
     <Compile Include="Assets\Ship\LoadingScreen.cs" />
     <Compile Include="Assets\Ship\MouseLookPlayer.cs" />
     <Compile Include="Assets\Ship\NetworkPlayer.cs" />
+    <Compile Include="Assets\Ship\PowerGenerator.cs" />
     <Compile Include="Assets\Ship\ShipComponent.cs" />
     <Compile Include="Assets\Ship\ShipMovement.cs" />
     <Compile Include="Assets\Ship\healthObj.cs" />

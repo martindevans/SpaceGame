@@ -3,10 +3,10 @@ using System.Collections;
 
 [RequireComponent(typeof(healthObj))]
 public abstract class ShipComponent : MonoBehaviour {
-	healthObj healthRef;
+	public healthObj healthRef;
 	// Use this for initialization
 	void Start () {
-		healthRef = this.GetComponent<healthObj>();
+		healthRef = this.GetComponent<healthObj>();;
 	}
 
 	public void ModHealth (float amount)
@@ -15,11 +15,6 @@ public abstract class ShipComponent : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		UpdateState();
-	}
-
-	public virtual void UpdateState ()
-	{
 		if (!healthRef.Alive) {
 			// Add Global state changes here (smoke etc) 
 		} else {

@@ -9,7 +9,9 @@ public class Client : MonoBehaviour
 
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings("Alpha V1.000");
+	PhotonNetwork.offlineMode = true;
+		OnCreatedRoom();
+        //PhotonNetwork.ConnectUsingSettings("Alpha V1.000");
     }
 
     void Update()
@@ -37,8 +39,8 @@ public class Client : MonoBehaviour
     void OnCreatedRoom()
     {
         // first player in the room
-        GameObject newShip = PhotonNetwork.Instantiate("LightCruiser", new Vector3(0, 0, 0),Quaternion.AngleAxis(90, Vector3.left), 0);
-        GameObject newShipPhys = PhotonNetwork.Instantiate("LightCruiser_Phys", new Vector3(0, 0, 0), Quaternion.AngleAxis(90, Vector3.left), 0);
+        GameObject newShip = PhotonNetwork.Instantiate("LightCruiser", new Vector3(0, 0, 0),Quaternion.AngleAxis(0, Vector3.left), 0);
+        GameObject newShipPhys = PhotonNetwork.Instantiate("LightCruiser_Phys", new Vector3(0, 0, 0), Quaternion.AngleAxis(0, Vector3.left), 0);
 
         GameObject LoadingScreen = new GameObject("LoadingScreen");
         LoadingScreen.AddComponent<LoadingScreen>();
