@@ -18,7 +18,7 @@ public class ShipMovement: Photon.MonoBehaviour {
 	// Update is called once per frame
     void Update ()
 	{
-		foreach (Engine e in Engines.Where (e => e.Active == true && e.Usage > 0)) {
+		foreach (Engine e in Engines.Where (e => e.GetComponent<healthObj>().Alive == true && e.Usage > 0)) {
 			this.rigidbody.AddForceAtPosition(e.Direction * e.Power * e.Usage, e.transform.position);
 		}
 

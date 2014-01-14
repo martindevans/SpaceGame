@@ -96,9 +96,10 @@
      <Compile Include="Assets\Ship\NetworkPlayer.cs" />
      <Compile Include="Assets\Ship\ShipComponent.cs" />
      <Compile Include="Assets\Ship\ShipMovement.cs" />
-     <Compile Include="Assets\UI Test\PilotDeck.cs" />
-     <Compile Include="Assets\UI Test\ShipStation.cs" />
-     <Compile Include="Assets\UI Test\TestUI.cs" />
+     <Compile Include="Assets\Ship\healthObj.cs" />
+     <Compile Include="Assets\Test\PilotDeck.cs" />
+     <Compile Include="Assets\Test\ShipStation.cs" />
+     <Compile Include="Assets\Test\TestUI.cs" />
      <None Include="Assets\SLK\ReadMe.txt" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />

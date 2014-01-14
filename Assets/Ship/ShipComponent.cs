@@ -1,25 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShipComponent : MonoBehaviour {
-	float health;
-	public bool Active;
+[RequireComponent(typeof(healthObj))]
+public abstract class ShipComponent : MonoBehaviour {
+	healthObj healthRef;
 	// Use this for initialization
 	void Start () {
-	
+		healthRef = this.GetComponent<healthObj>();
 	}
+
 	public void ModHealth (float amount)
 	{
-		health += amount;
-		if (health <= 0) {
-			Active = false;
-		}
-		if (!Active && health >= 200) {
-			Active = true;
-		}
+		healthRef.ModHealth(amount);
 	}
 	// Update is called once per frame
 	void Update () {
-	
+		UpdateState();
+	}
+
+	public virtual void UpdateState ()
+	{
+		if (!healthRef.Alive) {
+			// Add Global state changes here (smoke etc) 
+		} else {
+			// and for alive.
+		}
 	}
 }
