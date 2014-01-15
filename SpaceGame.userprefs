@@ -1,10 +1,14 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Test\TestUI.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Ship\ShipComponent.cs">
     <Files>
-      <File FileName="Assets\Ship\ShipMovement.cs" Line="18" Column="3" />
-      <File FileName="Assets\Ship\PowerGenerator.cs" Line="1" Column="1" />
-      <File FileName="Assets\Test\TestUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\Health.cs" Line="21" Column="1" />
+      <File FileName="Assets\Math.cs" Line="12" Column="6" />
+      <File FileName="Assets\Ship\UI\UIControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\Engine.cs" Line="20" Column="2" />
+      <File FileName="Assets\Ship\ShipComponent.cs" Line="13" Column="3" />
+      <File FileName="Assets\Ship\PowerGenerator.cs" Line="12" Column="23" />
+      <File FileName="Assets\Ship\UI\ShipStation.cs" Line="7" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(healthObj))]
+[RequireComponent(typeof(Health))]
 public abstract class ShipComponent : MonoBehaviour {
-	public healthObj healthRef;
+	public Health healthRef;
 	// Use this for initialization
 	void Start () {
-		healthRef = this.GetComponent<healthObj>();;
+		healthRef = this.GetComponent<Health>();;
 	}
 
 	public void ModHealth (float amount)

@@ -16,7 +16,7 @@ public class PowerGenerator : ShipComponent {
 	void Update () {
 		if (healthRef.Alive) {
 			Debug.Log("Power Gen is Alive");
-			Modifier = this.healthRef.Health / this.healthRef.MaxHealth;
+			Modifier = this.healthRef.CurrentHealth / this.healthRef.MaxHealth;
 			Output = Capability * Modifier;
 		} else {
 			Debug.Log("Ohnoes");
