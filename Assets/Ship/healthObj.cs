@@ -1,32 +1,43 @@
 using UnityEngine;
 
 // .SendMessage('ModHealth')(amount)
-public class healthObj : MonoBehaviour
+public class Health : MonoBehaviour
 {
-	public float Health { get { return _health; } set { _health = value; } }
-	public bool Alive { get { return _alive; } set { _alive = value; } }
-	public float MaxHealth { get { return _maxhealth; } set { _maxhealth = value; } }
-	// Default values when spawned.
-	float _health = 0;
-	float _maxhealth =1f;
-	bool _alive = false;
+	/// <summary>
+        /// Indicates the current health of the ships
+        /// </summary>
+	public float Health { get; private set; }
+	
+	/// <summary>
+        /// Indicates if this ship is currently alive
+        /// </summary>
+	public bool Alive { get { return Health > 0; } }
+	
+	/// <summary>
+        /// The maximum amount of hitpoints the ship may have
+        /// </summary>
+	public float MaxHealth { get; set; }
 
-	void Start(){
+	void Start() {
+		// Default values when spawned.
+		Health = 0;
+		MaxHealth = 1;
 	}
 
 	public bool ModHealth (float amount)
 	{
-		_health += amount;
-		if (_health >= _maxhealth) {
-			_health = _maxhealth;
-		}
-		if (_health <= 0) {
-			_alive = false;
-		}
-		if (!_alive && _health >= 200) {
-			_alive = true;
-		}
-		return _alive;
+		// Update health to new value (capped by max)
+		Health = Math.Max(MaxHealth, Health + amount);
+
+		return Alive;
+	}
+	
+	public void Revive()
+	{
+		if (Alive)
+			throw new InvalidOperationException("Ship cannot be revived when it is already alive");
+			
+		Health = MaxHealth;
 	}
 
 	void Update()
