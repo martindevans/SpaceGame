@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PowerGeneratorIncreaseLevel_UI : UIControl {
+public class Basic_PowerGeneratorIncreaseLevel_UI : BasicUIControl {
 	public PowerGenerator OperatingGenerator;
 	void OnMouseDown()
 	{

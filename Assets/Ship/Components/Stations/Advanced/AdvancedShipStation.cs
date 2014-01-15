@@ -11,3 +11,4 @@ public class AdvancedShipStation : ShipComponent {
 	void Update () {
 		
 	}
+}

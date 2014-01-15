@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UIControl : MonoBehaviour {
-	public ShipStation Parent;
+public class BasicUIControl : MonoBehaviour {
+	public BasicShipStation Parent;
 	// Use this for initialization
 	void Start () {
 

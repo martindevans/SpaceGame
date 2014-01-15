@@ -33,7 +33,7 @@ public class ShipMovement: Photon.MonoBehaviour {
 
 		// Engine Handling
 		foreach (Engine e in Engines.Where (e => e.healthRef.Alive == true)) {
-			float projectedPowerUsage = (e.Strength * e.Usage) * 100f;
+			float projectedPowerUsage = (e.Strength * e.Usage) * 650f;
 			if ((AvaliablePower - projectedPowerUsage) > 0){
 				this.rigidbody.AddForceAtPosition (e.Direction * e.Strength * e.Usage, e.transform.position);
 				AvaliablePower -= projectedPowerUsage;
@@ -44,6 +44,7 @@ public class ShipMovement: Photon.MonoBehaviour {
 		}
 
 		// Console Handling
+
 		// Medium Ship Stations (Dont need to bother with basic as they dont require any power)
 		foreach (ShipStation s in ShipStations.Where (e => e.healthRef.Alive == true)) {
 			float projectedPowerUsage = 100f;
@@ -70,6 +71,11 @@ public class ShipMovement: Photon.MonoBehaviour {
 		ShipInterior.transform.position = this.transform.position;
 		ShipInterior.transform.rotation = this.transform.rotation;
     	}
+
+	void OnGUI()
+	{	
+		GUILayout.Label (AvaliablePower.ToString());
+	}
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

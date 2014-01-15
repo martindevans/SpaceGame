@@ -33,21 +33,21 @@
     <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>D:\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CharacterMotor.cs" />
     <Compile Include="Assets\FPSInputController.cs" />
     <Compile Include="Assets\Math.cs" />
+    <Compile Include="Assets\Networking\Client.cs" />
+    <Compile Include="Assets\Networking\LoadingScreen.cs" />
+    <Compile Include="Assets\Networking\MouseLookPlayer.cs" />
+    <Compile Include="Assets\Networking\NetworkPlayer.cs" />
     <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
     <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
     <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />
@@ -82,31 +82,27 @@
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
     <Compile Include="Assets\Ship\CameraScript.cs" />
+    <Compile Include="Assets\Ship\Components\Engine.cs" />
+    <Compile Include="Assets\Ship\Components\PowerGenerator.cs" />
+    <Compile Include="Assets\Ship\Components\Stations\Advanced\AdvancedShipStation.cs" />
+    <Compile Include="Assets\Ship\Components\Stations\Basic\BasicEngineeringConsole.cs" />
+    <Compile Include="Assets\Ship\Components\Stations\Basic\BasicNavigationConsole.cs" />
+    <Compile Include="Assets\Ship\Components\Stations\Basic\BasicShipStation.cs" />
+    <Compile Include="Assets\Ship\Components\Stations\Intermediate\ShipStation.cs" />
     <Compile Include="Assets\Ship\Health.cs" />
     <Compile Include="Assets\Ship\ShipComponent.cs" />
     <Compile Include="Assets\Ship\ShipMovement.cs" />
-    <Compile Include="Assets\Ship\UI\UIControl.cs" />
+    <Compile Include="Assets\Ship\UI\Basic\BasicUIControl.cs" />
+    <Compile Include="Assets\Ship\UI\Basic\Engines\Basic_EngineDecreaseThrust_UI.cs" />
+    <Compile Include="Assets\Ship\UI\Basic\Engines\Basic_EngineIncreaseThrust_UI.cs" />
+    <Compile Include="Assets\Ship\UI\Basic\PowerGenerators\Basic_PowerGeneratorDecreaseLevel_UI.cs" />
+    <Compile Include="Assets\Ship\UI\Basic\PowerGenerators\Basic_PowerGeneratorIncreaseLevel_UI.cs" />
     <None Include="Assets\Plugins\release_history.txt" />
     <None Include="Assets\Plugins\Photon3Unity3D.xml" />
     <None Include="Assets\Photon Unity Networking\readme.txt" />
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Plugins\Photon3Unity3D.dll</HintPath>
     </Reference>
-    <Compile Include="Assets\Ship\UI\Engines\EngineDecreaseThrust_UI.cs" />
-    <Compile Include="Assets\Ship\UI\Engines\EngineIncreaseThrust_UI.cs" />
-    <Compile Include="Assets\Ship\UI\PowerGenerators\PowerGeneratorDecreaseLevel_UI.cs" />
-    <Compile Include="Assets\Ship\UI\PowerGenerators\PowerGeneratorIncreaseLevel_UI.cs" />
-    <Compile Include="Assets\Ship\Components\Engine.cs" />
-    <Compile Include="Assets\Ship\Components\PowerGenerator.cs" />
-    <Compile Include="Assets\Ship\Components\Stations\Basic\BasicShipStation.cs" />
-    <Compile Include="Assets\Ship\Components\Stations\Basic\BasicEngineeringConsole.cs" />
-    <Compile Include="Assets\Ship\Components\Stations\Basic\BasicNavigationConsole.cs" />
-    <Compile Include="Assets\Ship\Components\Stations\Advanced\AdvancedShipStation.cs" />
-    <Compile Include="Assets\Ship\Components\Stations\Intermediate\ShipStation.cs" />
-    <Compile Include="Assets\Networking\Client.cs" />
-    <Compile Include="Assets\Networking\LoadingScreen.cs" />
-    <Compile Include="Assets\Networking\NetworkPlayer.cs" />
-    <Compile Include="Assets\Networking\MouseLookPlayer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -116,10 +112,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Assets\Ship\UI\Engines\" />
-    <Folder Include="Assets\Ship\UI\PowerGenerators\" />
-    <Folder Include="Assets\Ship\Components\" />
-    <Folder Include="Assets\Networking\" />
-  </ItemGroup>
 </Project>

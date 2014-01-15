@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EngineIncreaseThrust_UI : UIControl {
+public class Basic_EngineIncreaseThrust_UI : BasicUIControl {
 	public Engine OperatingEngine;
 	void OnMouseDown()
 	{
