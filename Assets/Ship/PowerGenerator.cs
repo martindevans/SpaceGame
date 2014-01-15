@@ -22,5 +22,6 @@ public class PowerGenerator : ShipComponent {
 			Debug.Log("Ohnoes");
 			Output = 0f;
 		}
+		Debug.Log (Output);
 	}
 }

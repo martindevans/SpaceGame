@@ -23,7 +23,9 @@ public class Engine : ShipComponent {
 		if ((Usage + amount) > 1)
 			Usage = 1;
 		else {
+			Debug.Log("Im adding " + amount);
 			Usage += amount;
+			Debug.Log("Usage is now " + Usage);
 		}
 		if ((Usage < 0)) {
 			Usage = 0;
@@ -32,9 +34,5 @@ public class Engine : ShipComponent {
 	// Update is called once per frame
 	void Update () {
 
-		// Testing 
-		if (this.Usage < 0.1f)
-			ModUsage(0.000001f);
-		
 	}
 }
