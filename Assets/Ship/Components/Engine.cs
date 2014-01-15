@@ -5,7 +5,7 @@ public class Engine : ShipComponent {
 
 	public float Strength = 10f;
 	public float Usage = 0f;
-	public Vector3 Direction { get { return -this.transform.forward; } }
+	public Vector3 Direction { get { return this.transform.forward; } }
 	// Use this for initialization 
 	void Start () {
 		// Set default engine health here. (starts at 300)

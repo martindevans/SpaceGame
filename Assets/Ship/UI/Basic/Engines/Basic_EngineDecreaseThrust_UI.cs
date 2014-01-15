@@ -5,7 +5,7 @@ public class Basic_EngineDecreaseThrust_UI : BasicUIControl {
 	void OnMouseDown()
 	{
 		if (Parent.Active) {
-			OperatingEngine.ModUsage (-0.001f);
+			OperatingEngine.ModUsage (-0.01f);
 		} else {
 			// Dont do anything if our console is dead/withoutpower
 		}

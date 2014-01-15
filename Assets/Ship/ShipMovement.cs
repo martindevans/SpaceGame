@@ -3,18 +3,18 @@ using System.Linq;
 using System.Collections;
 
 /// <summary>
-/// NetWorking class to handle ship movement and sync it
+/// class to handle ship movement
 /// </summary>
-public class ShipMovement: Photon.MonoBehaviour {
+public class ShipMovement: MonoBehaviour {
 	public PowerGenerator[] PowerGenerators;
 	public ShipStation[] ShipStations;
 	public AdvancedShipStation[] AdvancedShipStations;
 	public Engine[] Engines;
     	public GameObject ShipInterior;
+	public GameObject ShipNetwork;
 
 	// 1 Unit of thrust = 0.5 Power Units
 	public float AvaliablePower = 0f;
-
 
 	void Start ()
 	{
@@ -67,29 +67,19 @@ public class ShipMovement: Photon.MonoBehaviour {
 				s.HasPower = false;
 			}
 		}
-		
-		ShipInterior.transform.position = this.transform.position;
-		ShipInterior.transform.rotation = this.transform.rotation;
-    	}
+
+		//ShipInterior.transform.position = this.transform.position;
+		//ShipInterior.transform.rotation = this.transform.rotation;
+
+		ShipNetwork.transform.position = this.transform.position;
+		ShipNetwork.transform.rotation = this.transform.localRotation;
+	}
 
 	void OnGUI()
 	{	
 		GUILayout.Label (AvaliablePower.ToString());
 	}
 
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting) // What are we sending to the server?
-        {
-            // Dont send anything, just recieve the ship position here.
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-        }
-        else // What should we be recieving from the server?
-        {
-            transform.position = (Vector3)stream.ReceiveNext();
-            transform.rotation = (Quaternion)stream.ReceiveNext();// Get the updated Ship position
-        }
-    }
+
 }
 
