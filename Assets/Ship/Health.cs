@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
 	/// <summary>
         /// Indicates if this entity is currently alive
         /// </summary>
-	public bool Alive { get { return CurrentHealth > 0; } private set{ Alive = value; } }
+	public bool Alive { get { return CurrentHealth > 0; } }
 	
 	/// <summary>
         /// The maximum amount of hitpoints the entity may have

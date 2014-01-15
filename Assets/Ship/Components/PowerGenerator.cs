@@ -5,7 +5,7 @@ public class PowerGenerator : ShipComponent {
 	public float Usage = 1f;
 	public float Capability = 10000f;
 	public float Modifier = 1f;
-	public float Output = 0f;
+	public float Output = 0;
 	// Use this for initialization
 	void Start () {
 		// Set default health here. (starts at 300)
@@ -18,7 +18,7 @@ public class PowerGenerator : ShipComponent {
 		Usage += amount;
 		if (Usage > 1)
 			Usage = 1;
-		if ((Usage < 0)) {
+		if ((Usage <= 0)) {
 			Usage = 0;
 		}
 	}
@@ -26,11 +26,11 @@ public class PowerGenerator : ShipComponent {
 	// Update is called once per frame
 	void Update () {
 		if (healthRef.Alive) {
+			Output = 0; // Dirty Fix
 			Modifier = this.healthRef.CurrentHealth / this.healthRef.MaxHealth;
-			Output = Capability * Modifier * Usage;
+			Output = (Capability * Modifier * Usage) ;
 		} else {
-			Output = 0f;
+			Output = 0;
 		}
-		Debug.Log (Output);
 	}
 }

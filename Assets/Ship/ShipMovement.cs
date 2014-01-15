@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Linq;
 using System.Collections;
 
@@ -76,8 +77,8 @@ public class ShipMovement: MonoBehaviour {
 	}
 
 	void OnGUI()
-	{	
-		GUILayout.Label (AvaliablePower.ToString());
+	{	int stuff = (int)Math.Round(AvaliablePower); // Round to friendly number
+		GUILayout.Label (stuff.ToString());
 	}
 
 
