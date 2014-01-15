@@ -94,8 +94,11 @@
      <Compile Include="Assets\Ship\ShipMovement.cs" />
      <Compile Include="Assets\Ship\UI\BasicEngineeringConsole.cs" />
      <Compile Include="Assets\Ship\UI\BasicNavigationConsole.cs" />
+     <Compile Include="Assets\Ship\UI\BasicShipStation.cs" />
      <Compile Include="Assets\Ship\UI\EngineDecreaseThrust_UI.cs" />
      <Compile Include="Assets\Ship\UI\EngineIncreaseThrust_UI.cs" />
+     <Compile Include="Assets\Ship\UI\PowerGeneratorDecreaseLevel_UI.cs" />
+     <Compile Include="Assets\Ship\UI\PowerGeneratorIncreaseLevel_UI.cs" />
      <Compile Include="Assets\Ship\UI\ShipStation.cs" />
      <Compile Include="Assets\Ship\UI\UIControl.cs" />
      <None Include="Assets\Plugins\release_history.txt" />

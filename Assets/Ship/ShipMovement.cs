@@ -8,6 +8,7 @@ using System.Collections;
 public class ShipMovement: Photon.MonoBehaviour {
 	public PowerGenerator[] PowerGenerators;
 	public ShipStation[] ShipStations;
+	public AdvancedShipStation[] AdvancedShipStations;
 	public Engine[] Engines;
     	public GameObject ShipInterior;
 
@@ -43,6 +44,7 @@ public class ShipMovement: Photon.MonoBehaviour {
 		}
 
 		// Console Handling
+		// Medium Ship Stations (Dont need to bother with basic as they dont require any power)
 		foreach (ShipStation s in ShipStations.Where (e => e.healthRef.Alive == true)) {
 			float projectedPowerUsage = 100f;
 			if ((AvaliablePower - projectedPowerUsage) > 0){
@@ -51,11 +53,20 @@ public class ShipMovement: Photon.MonoBehaviour {
 			}
 			else {
 				s.HasPower = false;
-				// Just dont function if we havent got the power, possibly add some sort of inefficent movement here.
 			}
 		}
-
-
+		// Advanced Ship Stations
+		foreach (AdvancedShipStation s in AdvancedShipStations.Where (e => e.healthRef.Alive == true)) {
+			float projectedPowerUsage = 300f; // Uses 3x more power than a standard station
+			if ((AvaliablePower - projectedPowerUsage) > 0){
+				AvaliablePower -= projectedPowerUsage;
+				s.HasPower = true;
+			}
+			else {
+				s.HasPower = false;
+			}
+		}
+		
 		ShipInterior.transform.position = this.transform.position;
 		ShipInterior.transform.rotation = this.transform.rotation;
     	}
