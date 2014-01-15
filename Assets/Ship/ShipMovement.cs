@@ -7,6 +7,7 @@ using System.Collections;
 /// </summary>
 public class ShipMovement: Photon.MonoBehaviour {
 	public PowerGenerator[] PowerGenerators;
+	public ShipStation[] ShipStations;
 	public Engine[] Engines;
     	public GameObject ShipInterior;
 
@@ -31,12 +32,25 @@ public class ShipMovement: Photon.MonoBehaviour {
 
 		// Engine Handling
 		foreach (Engine e in Engines.Where (e => e.healthRef.Alive == true)) {
-			float projectedPowerUsage = (e.Strength * e.Usage) / 2f;
+			float projectedPowerUsage = (e.Strength * e.Usage) * 100f;
 			if ((AvaliablePower - projectedPowerUsage) > 0){
 				this.rigidbody.AddForceAtPosition (e.Direction * e.Strength * e.Usage, e.transform.position);
 				AvaliablePower -= projectedPowerUsage;
 			}
 			else {
+				// Just dont function if we havent got the power, possibly add some sort of inefficent movement here.
+			}
+		}
+
+		// Console Handling
+		foreach (ShipStation s in ShipStations.Where (e => e.healthRef.Alive == true)) {
+			float projectedPowerUsage = 100f;
+			if ((AvaliablePower - projectedPowerUsage) > 0){
+				AvaliablePower -= projectedPowerUsage;
+				s.HasPower = true;
+			}
+			else {
+				s.HasPower = false;
 				// Just dont function if we havent got the power, possibly add some sort of inefficent movement here.
 			}
 		}

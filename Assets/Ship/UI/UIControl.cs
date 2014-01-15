@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestUI : MonoBehaviour {
-	public ShipMovement ShipMovementScript;
+public class UIControl : MonoBehaviour {
 	public ShipStation Parent;
 	// Use this for initialization
 	void Start () {
@@ -15,10 +14,7 @@ public class TestUI : MonoBehaviour {
 	}
 	void OnMouseDown ()
 	{
-		if (!Parent.Active) {
-			Debug.Log ("Clicked!");
-			//ShipMovementScript.Thrust += 1000f;
-		}
+
 	}
 	// Update is called once per frame
 	void Update () {
