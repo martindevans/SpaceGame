@@ -16,7 +16,7 @@ public class ShipMovement: Photon.MonoBehaviour {
 
 	void Start ()
 	{
-
+		// Just a git test
 	}
 	
 	// Update is called once per frame
