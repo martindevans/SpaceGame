@@ -12,7 +12,7 @@ public class ShipStation : ShipComponent {
 		
 	}
 	
-	override float Operate(float availablePower)
+	public override float Operate(float availablePower)
 	{
 		float projectedPowerUsage = 100f;
 		if ((availablePower - projectedPowerUsage) > 0){

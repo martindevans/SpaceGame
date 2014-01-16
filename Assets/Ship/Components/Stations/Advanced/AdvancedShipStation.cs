@@ -9,18 +9,18 @@ public class AdvancedShipStation : ShipComponent {
 	}
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
-	
-	override float Operate(float availablePower)
+
+	public override float Operate(float availablePower)
 	{
 		float projectedPowerUsage = 300f; // Uses 3x more power than a standard station
-		if ((AvaliablePower - projectedPowerUsage) > 0){
-			s.HasPower = true;
+		if ((availablePower - projectedPowerUsage) > 0){
+			this.HasPower = true;
 			return projectedPowerUsage;
 		}
 		else {
-			s.HasPower = false;
+			this.HasPower = false;
 			return 0;
 		}
 	}

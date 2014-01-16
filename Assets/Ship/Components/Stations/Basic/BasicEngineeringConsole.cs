@@ -12,7 +12,7 @@ public class BasicEngineeringConsole : BasicShipStation {
 		Debug.Log ("Basic Engineering Console is .." + this.Active);
 	}
 	
-	override float Operate(float availablePower)
+	public override float Operate(float availablePower)
 	{
 		return 0;
 	}

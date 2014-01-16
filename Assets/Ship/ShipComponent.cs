@@ -31,8 +31,5 @@ public abstract class ShipComponent : MonoBehaviour
         /// </summary>
         /// <param name="availablePower">The total amount of power available to this component</param>
         /// <returns>The amount of power this component consumed</returns>
-	public abstract float Operate(float availablePower)
-	{
-
-	}
+	public abstract float Operate(float availablePower);
 }

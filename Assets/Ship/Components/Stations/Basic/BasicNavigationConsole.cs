@@ -12,7 +12,7 @@ public class BasicNavigationConsole : BasicShipStation {
 
 	}
 	
-	override float Operate(float availablePower)
+	public override float Operate(float availablePower)
 	{
 		return 0;
 	}
