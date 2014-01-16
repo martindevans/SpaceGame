@@ -34,14 +34,7 @@ public class ShipMovement: MonoBehaviour {
 
 		// Engine Handling
 		foreach (Engine e in Engines.Where (e => e.healthRef.Alive == true)) {
-			float projectedPowerUsage = (e.Strength * e.Usage) * 650f;
-			if ((AvaliablePower - projectedPowerUsage) > 0){
-				this.rigidbody.AddForceAtPosition (e.Direction * e.Strength * e.Usage, e.transform.position);
-				AvaliablePower -= projectedPowerUsage;
-			}
-			else {
-				// Just dont function if we havent got the power, possibly add some sort of inefficent movement here.
-			}
+			AvailablePower -= e.Operate(AvailablePower)
 		}
 
 		// Console Handling
