@@ -10,7 +10,7 @@ public class Engine : ShipComponent {
 	// Use this for initialization 
 	void Start () {
 		// Set default engine health here.
-		this.healthRef.MaxHealth = 1000f;
+		this.health.MaxHealth = 1000f;
 		this.ModHealth(500);
 		
 		// Testing
