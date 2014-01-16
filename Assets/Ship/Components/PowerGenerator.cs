@@ -26,11 +26,15 @@ public class PowerGenerator : ShipComponent {
 	// Update is called once per frame
 	void Update () {
 		if (healthRef.Alive) {
-			Output = 0; // Dirty Fix
 			Modifier = this.healthRef.CurrentHealth / this.healthRef.MaxHealth;
 			Output = (Capability * Modifier * Usage) ;
 		} else {
 			Output = 0;
 		}
+	}
+	
+	override float Operate(float availablePower)
+	{
+		return Output;
 	}
 }
