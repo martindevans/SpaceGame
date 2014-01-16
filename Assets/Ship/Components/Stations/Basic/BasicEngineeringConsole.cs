@@ -11,5 +11,10 @@ public class BasicEngineeringConsole : BasicShipStation {
 	void Update () {
 		Debug.Log ("Basic Engineering Console is .." + this.Active);
 	}
+	
+	override float Operate(float availablePower)
+	{
+		return 0;
+	}
 }
 

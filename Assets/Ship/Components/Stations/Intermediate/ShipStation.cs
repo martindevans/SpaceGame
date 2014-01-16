@@ -11,4 +11,17 @@ public class ShipStation : ShipComponent {
 	void Update () {
 		
 	}
+	
+	override float Operate(float availablePower)
+	{
+		float projectedPowerUsage = 100f;
+		if ((availablePower - projectedPowerUsage) > 0){
+			HasPower = true;
+			return projectedPowerUsage;
+		}
+		else {
+			HasPower = false;
+			return 0;
+		}
+	}
 }

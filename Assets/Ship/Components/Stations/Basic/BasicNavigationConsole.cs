@@ -11,5 +11,10 @@ public class BasicNavigationConsole : BasicShipStation {
 	void Update () {
 
 	}
+	
+	override float Operate(float availablePower)
+	{
+		return 0;
+	}
 }
 

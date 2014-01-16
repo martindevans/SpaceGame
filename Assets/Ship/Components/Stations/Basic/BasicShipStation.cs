@@ -11,5 +11,10 @@ public class BasicShipStation : ShipComponent {
 	void Update () {
 
 	}
+	
+	override float Operate(float availablePower)
+	{
+		return 0;
+	}
 }
 
