@@ -11,4 +11,17 @@ public class AdvancedShipStation : ShipComponent {
 	void Update () {
 		
 	}
+	
+	override float Operate(float availablePower)
+	{
+		float projectedPowerUsage = 300f; // Uses 3x more power than a standard station
+		if ((AvaliablePower - projectedPowerUsage) > 0){
+			s.HasPower = true;
+			return projectedPowerUsage;
+		}
+		else {
+			s.HasPower = false;
+			return 0;
+		}
+	}
 }
