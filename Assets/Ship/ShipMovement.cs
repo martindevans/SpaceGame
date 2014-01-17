@@ -23,29 +23,28 @@ public class ShipMovement: MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-    void Update ()
+    	void Update ()
 	{
 
 		// Power Generation Handling
 		AvaliablePower = 0f; // Ineffiecent - find a better way to do this.
 		foreach (PowerGenerator p in PowerGenerators) {
-			AvaliablePower += p.Operate(AvailablePower);
+			AvaliablePower += p.Operate(AvaliablePower);
 		}
 
 		// Engine Handling
-		foreach (Engine e in Engines.Where(e => e.healthRef.Alive == true)) {
-			AvailablePower -= e.Operate(AvailablePower)
+		foreach (Engine e in Engines.Where(e => e.health.Alive == true)) {
+			AvaliablePower -= e.Operate(AvaliablePower);
 		}
 
 		// Console Handling
-
 		// Medium Ship Stations (Dont need to bother with basic as they dont require any power)
-		foreach (ShipStation s in ShipStations.Where(e => e.healthRef.Alive == true)) {
-			AvailablePower -= s.Operate(AvailablePower);
+		foreach (ShipStation s in ShipStations.Where(e => e.health.Alive == true)) {
+			AvaliablePower -= s.Operate(AvaliablePower);
 		}
 		// Advanced Ship Stations
-		foreach (AdvancedShipStation s in AdvancedShipStations.Where(e => e.healthRef.Alive == true)) {
-			AvailablePower -= s.Operate(AvailablePower);
+		foreach (AdvancedShipStation s in AdvancedShipStations.Where(e => e.health.Alive == true)) {
+			AvaliablePower -= s.Operate(AvaliablePower);
 		}
 
 		/*

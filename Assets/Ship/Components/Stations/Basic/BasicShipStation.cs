@@ -12,7 +12,7 @@ public class BasicShipStation : ShipComponent {
 
 	}
 	
-	override float Operate(float availablePower)
+	public override float Operate(float availablePower)
 	{
 		return 0;
 	}

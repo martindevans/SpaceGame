@@ -33,7 +33,7 @@ public class PowerGenerator : ShipComponent {
 		}
 	}
 	
-	override float Operate(float availablePower)
+	public override float Operate(float availablePower)
 	{
 		return Output;
 	}
