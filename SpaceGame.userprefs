@@ -1,0 +1,33 @@
+<Properties GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Ship/Components/PowerGenerator.cs">
+    <Files>
+      <File FileName="Assets/CharacterMotor.cs" Line="25" Column="27" />
+      <File FileName="Assets/Ship/CameraScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Ship/Health.cs" Line="1" Column="1" />
+      <File FileName="Assets/Ship/ShipComponent.cs" Line="19" Column="36" />
+      <File FileName="Assets/Math.cs" Line="1" Column="1" />
+      <File FileName="Assets/Photon Unity Networking/readme.txt" Line="1" Column="1" />
+      <File FileName="Assets/Networking/Client.cs" Line="1" Column="1" />
+      <File FileName="Assets/Networking/LoadingScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets/Networking/NetworkPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Networking/MouseLookPlayer.cs" Line="20" Column="2" />
+      <File FileName="Assets/Networking/ShipSync.cs" Line="1" Column="1" />
+      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonView.cs" Line="1" Column="1" />
+      <File FileName="Assets/Photon Unity Networking/UtilityScripts/MoveByKeys.cs" Line="1" Column="1" />
+      <File FileName="Assets/Photon Unity Networking/UtilityScripts/OnAwakeUsePhotonView.cs" Line="1" Column="1" />
+      <File FileName="Assets/Ship/ShipMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Ship/Components/PowerGenerator.cs" Line="6" Column="35" />
+      <File FileName="Assets/Ship/Components/Engine.cs" Line="14" Column="23" />
+      <File FileName="Assets/Ship/Components/Stations/Advanced/AdvancedShipStation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Ship/Components/Stations/Basic/BasicEngineeringConsole.cs" Line="6" Column="28" />
+      <File FileName="Assets/Ship/Components/Stations/Basic/BasicNavigationConsole.cs" Line="2" Column="1" />
+      <File FileName="Assets/Ship/Components/Stations/Basic/BasicShipStation.cs" Line="8" Column="1" />
+      <File FileName="Assets/Ship/Components/Stations/Intermediate/ShipStation.cs" Line="9" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
