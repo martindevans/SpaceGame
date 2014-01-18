@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class AdvancedShipStation : ShipComponent {
-	public bool Active { get { return healthRef.Alive && HasPower; } private set{Active = value;}}
+	public bool Active { get { return health.Alive && HasPower; } private set{Active = value;}}
 	public bool HasPower = false;
 	// Use this for initialization
 	void Start () {
@@ -9,6 +9,19 @@ public class AdvancedShipStation : ShipComponent {
 	}
 	// Update is called once per frame
 	void Update () {
-		
+
+	}
+
+	public override float Operate(float availablePower)
+	{
+		float projectedPowerUsage = 300f; // Uses 3x more power than a standard station
+		if ((availablePower - projectedPowerUsage) > 0){
+			this.HasPower = true;
+			return projectedPowerUsage;
+		}
+		else {
+			this.HasPower = false;
+			return 0;
+		}
 	}
 }
