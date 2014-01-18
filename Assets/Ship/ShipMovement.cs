@@ -20,6 +20,7 @@ public class ShipMovement: MonoBehaviour {
 	void Start ()
 	{
 		// Just a git test
+		this.rigidbody.freezeRotation = true;
 	}
 	
 	// Update is called once per frame
