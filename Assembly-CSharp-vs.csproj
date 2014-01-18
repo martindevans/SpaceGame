@@ -51,6 +51,7 @@
      <Compile Include="Assets\Math.cs" />
      <Compile Include="Assets\Networking\Client.cs" />
      <Compile Include="Assets\Networking\LoadingScreen.cs" />
+     <Compile Include="Assets\Networking\Map.cs" />
      <Compile Include="Assets\Networking\MouseLookPlayer.cs" />
      <Compile Include="Assets\Networking\NetworkPlayer.cs" />
      <Compile Include="Assets\Networking\ShipSync.cs" />

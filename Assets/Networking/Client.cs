@@ -35,14 +35,20 @@ public class Client : MonoBehaviour
         LoadingScreen.AddComponent<LoadingScreen>();
     }
     void OnCreatedRoom()
-    {
+    	{
         // first player in the room
-        GameObject newShip = PhotonNetwork.Instantiate("LightCruiser", new Vector3(0, 0, 0),Quaternion.AngleAxis(0, Vector3.left), 0);
-        GameObject newShipPhys = PhotonNetwork.Instantiate("LightCruiser_Phys", new Vector3(0, 0, 0), Quaternion.AngleAxis(0, Vector3.left), 0);
+	        GameObject newShip = PhotonNetwork.Instantiate("LightCruiser", new Vector3(0, 0, 0),Quaternion.AngleAxis(0, Vector3.left), 0);
+	        GameObject newShipPhys = PhotonNetwork.Instantiate("LightCruiser_Phys", new Vector3(0, 0, 0), Quaternion.AngleAxis(0, Vector3.left), 0);
+		
+		GameObject Map = new GameObject ("Map");
+	        GameObject LoadingScreen = new GameObject("LoadingScreen");
+	        LoadingScreen.AddComponent<LoadingScreen>();
+	        LoadingScreen.GetComponent<LoadingScreen>().PlayerShipPhysical = newShip;
+	        LoadingScreen.GetComponent<LoadingScreen>().PlayerShipVirtual = newShip;
 
-        GameObject LoadingScreen = new GameObject("LoadingScreen");
-        LoadingScreen.AddComponent<LoadingScreen>();
-        LoadingScreen.GetComponent<LoadingScreen>().PlayerShipPhysical = newShip;
-        LoadingScreen.GetComponent<LoadingScreen>().PlayerShipVirtual = newShip;
-    }
+		// Generate a new map seed.
+		Map.AddComponent<Map> ();
+		Map.GetComponent<Map> ().Seed = UnityEngine.Random.seed;
+		Map.GetComponent<Map> ().Ship = newShip;
+	    }
 }

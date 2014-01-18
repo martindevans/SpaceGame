@@ -1,30 +1,35 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Ship\ShipMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Networking\Map.cs">
     <Files>
-      <File FileName="Assets\Ship\Components\Stations\Advanced\AdvancedShipStation.cs" Line="12" Column="3" />
+      <File FileName="Assets\Ship\CameraScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\Components\Stations\Advanced\AdvancedShipStation.cs" Line="1" Column="1" />
       <File FileName="Assets\Ship\Health.cs" Line="1" Column="1" />
       <File FileName="Assets\Math.cs" Line="1" Column="1" />
       <File FileName="Assets\Ship\ShipComponent.cs" Line="1" Column="1" />
-      <File FileName="Assets\Ship\ShipMovement.cs" Line="32" Column="4" />
+      <File FileName="Assets\Ship\ShipMovement.cs" Line="25" Column="9" />
       <File FileName="Assets\CharacterMotor.cs" Line="1" Column="1" />
       <File FileName="Assets\FPSInputController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Ship\CameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Ship\Components\Stations\Basic\BasicEngineeringConsole.cs" Line="9" Column="3" />
+      <File FileName="Assets\Ship\Components\Stations\Basic\BasicEngineeringConsole.cs" Line="1" Column="1" />
       <File FileName="Assets\Ship\Components\Stations\Basic\BasicNavigationConsole.cs" Line="1" Column="1" />
-      <File FileName="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs" Line="1522" Column="1" />
+      <File FileName="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs" Line="1" Column="1" />
       <File FileName="Assets\Ship\UI\Basic\BasicUIControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Ship\UI\Basic\PowerGenerators\Basic_PowerGeneratorDecreaseLevel_UI.cs" Line="3" Column="14" />
-      <File FileName="Assets\Ship\UI\Basic\Engines\Basic_EngineIncreaseThrust_UI.cs" Line="13" Column="2" />
-      <File FileName="Assets\Ship\UI\Basic\Engines\Basic_EngineDecreaseThrust_UI.cs" Line="8" Column="34" />
-      <File FileName="Assets\Ship\UI\Basic\PowerGenerators\Basic_PowerGeneratorIncreaseLevel_UI.cs" Line="3" Column="20" />
-      <File FileName="Assets\Ship\Components\Engine.cs" Line="16" Column="19" />
-      <File FileName="Assets\Ship\Components\PowerGenerator.cs" Line="28" Column="25" />
-      <File FileName="Assets\Networking\ShipSync.cs" Line="25" Column="36" />
+      <File FileName="Assets\Ship\UI\Basic\PowerGenerators\Basic_PowerGeneratorDecreaseLevel_UI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\UI\Basic\Engines\Basic_EngineIncreaseThrust_UI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\UI\Basic\Engines\Basic_EngineDecreaseThrust_UI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\UI\Basic\PowerGenerators\Basic_PowerGeneratorIncreaseLevel_UI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\Components\Engine.cs" Line="1" Column="1" />
+      <File FileName="Assets\Ship\Components\PowerGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Networking\ShipSync.cs" Line="24" Column="3" />
+      <File FileName="Assets\Networking\LoadingScreen.cs" Line="34" Column="42" />
+      <File FileName="Assets\Networking\Map.cs" Line="91" Column="34" />
+      <File FileName="Assets\Networking\Client.cs" Line="32" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\UnityProjects\SpaceGame\Assets\Networking\Map.cs" line="100" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
