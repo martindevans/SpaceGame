@@ -18,8 +18,8 @@ public class Map : Photon.MonoBehaviour
 		// Generate the starting chunk
 		Chunks = new WorldChunk[20, 20, 20];
 		startingPosition = Ship.transform.position;
-		GenerateChunk (1,1, 1 );
-		ActiveChunk = Chunks [1, 1, 1];
+		GenerateChunk (0,0,0);
+		ActiveChunk = Chunks [0, 0, 0];
 	}
 	// Sync the map seed.
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -33,37 +33,50 @@ public class Map : Photon.MonoBehaviour
 			Seed = (float)stream.ReceiveNext();
 		}
 	}
+
 	// Update is called once per frame
 	void Update ()
 	{
-		if (!ActiveChunk.isBuilt) {
-			BuildChunk(ActiveChunk);
-			ActiveChunk.isBuilt = true;
-		}
 		// When the ship moves more than chunksize/2 , generate the next chunk in advance.
-		if (Ship.transform.position.x >= ActiveChunk.x + ChunkSize/2) {
+		if (Ship.transform.position.x > (ActiveChunk.x * ChunkSize) - ChunkSize/2) {
 			GenerateChunk((ActiveChunk.x + 1), ActiveChunk.y, ActiveChunk.z);
 		}
-		if (Ship.transform.position.y >= ActiveChunk.y + ChunkSize/2) {
+		if (Ship.transform.position.y > (ActiveChunk.y * ChunkSize) - ChunkSize/2) {
 			GenerateChunk(ActiveChunk.x, (ActiveChunk.y + 1), ActiveChunk.z);
 		}
-		if (Ship.transform.position.z >= ActiveChunk.z + ChunkSize/2) {
+		if (Ship.transform.position.z > (ActiveChunk.z * ChunkSize) - ChunkSize/2) {
 			GenerateChunk(ActiveChunk.x, ActiveChunk.y, (ActiveChunk.z + 1));
 		}
+
+		/*
+		if (Ship.transform.position.x <= ActiveChunk.x * ChunkSize + ChunkSize/2) {
+			GenerateChunk((ActiveChunk.x - 1), ActiveChunk.y, ActiveChunk.z);
+		}
+		if (Ship.transform.position.y <= ActiveChunk.y * ChunkSize + ChunkSize/2) {
+			GenerateChunk(ActiveChunk.x, (ActiveChunk.y - 1), ActiveChunk.z);
+		}
+		if (Ship.transform.position.z <= ActiveChunk.z * ChunkSize + ChunkSize/2) {
+			GenerateChunk(ActiveChunk.x, ActiveChunk.y, (ActiveChunk.z - 1));
+		}*/
 	}
 	void BuildChunk(WorldChunk chunk)
 	{
+		GameObject newChunk = new GameObject (chunk.x.ToString () + "" + chunk.y.ToString () + "" + chunk.z.ToString ());
+		newChunk.transform.position = new Vector3 (chunk.x * ChunkSize, chunk.y * ChunkSize, chunk.z * ChunkSize);
 		for (int i = 0; i < chunk.ChunkObjects.Length; i++) {
 			// Just build asteroids for now, alter WorldChunkObject to hold object name.
 			GameObject newAsteroid = PhotonNetwork.InstantiateSceneObject("Asteroid", chunk.ChunkObjects[i].Position, chunk.ChunkObjects[i].Rotation,0,null);
-			newAsteroid.transform.parent = this.transform;
+			newAsteroid.transform.parent = newChunk.transform;
 		}
+		newChunk.transform.parent = this.transform;
 	}
 	void GenerateChunk(int x, int y, int z)
 	{
 		// Generate a new chunk, then set it to the active one.
 		Chunks[x,y,z] = WorldChunk.GenerateChunk (x, y, z, ChunkSize, 1);
+
 		ActiveChunk = Chunks [x, y, z];
+		BuildChunk (ActiveChunk);
 	}
 }
 public class WorldChunk
@@ -91,9 +104,9 @@ public class WorldChunk
 		WorldChunk retChunk = new WorldChunk (x, y, z, size);
 
 		// Set the bounds of the chunk.
-		Vector2 xBounds = new Vector2 (-x * size, x * size);
-		Vector2 yBounds = new Vector2 (-y * size, y * size);
-		Vector2 zBounds = new Vector2 (-z * size, z * size);
+		Vector2 xBounds = new Vector2 ((x * size) - size, (x * size) + size);
+		Vector2 yBounds = new Vector2 ((y * size) - size, (y * size) + size);
+		Vector2 zBounds = new Vector2 ((z * size) - size, (z * size) + size);
 
 		int numberOfObjects = UnityEngine.Random.Range (density * 1, density * 100);
 
