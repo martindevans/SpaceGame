@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Assets.Networking
 {
@@ -11,6 +12,7 @@ namespace Assets.Networking
 		public Vector2 boundriesY;
 		public Vector2 boundriesZ;
 		
+		public GameObject GO;
 		public Vector3 position;
 		
 		public ChunkObject[] ChunkObjects;
