@@ -6,30 +6,31 @@ public class ChunkManager : Photon.MonoBehaviour
 	public float Seed;
 	public GameObject Ship;
 
-	Chunk ActiveChunk {get {return _activeChunk;}
-		set{ 
-			if (_activeChunk.position != value.position) {
+	Chunk _activeChunk;
+	Chunk ActiveChunk
+    {
+        get { return _activeChunk; }
+		set
+        {
+			if (_activeChunk.position != value.position)
+            {
 				GenerateChunkBlock(value);
 				_activeChunk = value;
 			}
-			else {
-				// Do nothing.
-			}
-		}}
-	
-	// Just an underlying private property, not actually used.
-	Chunk _activeChunk;
-	
+		}
+    }
 	
 	Dictionary<Vector3, Chunk> Chunks = new Dictionary<Vector3, Chunk>();
-	float chunksize = 1000f;
+    
+	const float CHUNK_SIZE = 1000f;
+    
 	// Use this for initialization
 	void Start ()
 	{
 		// Generate the starting chunk
 		startingPosition = Ship.transform.position;
 		
-		startingPosition = new Vector3((int)(Ship.transform.position.x / chunksize), (int)(Ship.transform.position.y / chunksize),(int)(Ship.transform.position.z / chunksize));
+		startingPosition = new Vector3((int)(Ship.transform.position.x / CHUNK_SIZE), (int)(Ship.transform.position.y / CHUNK_SIZE),(int)(Ship.transform.position.z / CHUNK_SIZE));
 		GenerateChunk (startingPosition);
 		GenerateChunkBlock(Chunks[startingPosition]);
 		
@@ -40,6 +41,14 @@ public class ChunkManager : Photon.MonoBehaviour
 	// Sync the map seed.
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
+        // So I don't really know how photon works, but you *really* need to make sure the seed is synced before generating a single thing.
+        // I'd have a boolean field like:
+        //
+        // bool isSeedAvailable = NETWORKING.IsThisTheServer;
+        //
+        // And then in this method (when a non server receives the seed) it sets that to true. Obviously then in all your generate methods you check of the flag is set.
+        // And if it isn't refuse to generate a thing
+    
 		if (stream.isWriting) // What are we sending to the server?
 		{
 			stream.SendNext(Seed);
@@ -56,18 +65,21 @@ public class ChunkManager : Photon.MonoBehaviour
 	{
 		// When the ship moves more than chunksize/2 , generate the next chunk in advance.
 		
+        // Maybe I'm missing something here... but as far as I can see Chunk doesn't have an x, y or z property? :S
+        // I'm *guessing* you mean chunk.position.x ???
+        
 		// Moving in the positive X direction
-		if (Ship.transform.position.x > ActiveChunk.boundriesX.y) {
+		if (Ship.transform.position.x > ActiveChunk.bounds.max.x) {
 			ActiveChunk = Chunks[new Vector3(ActiveChunk.x + 1, ActiveChunk.y, ActiveChunk.z)]
 			//GenerateChunk((ActiveChunk.x + 2), ActiveChunk.y, ActiveChunk.z);
 		}
 		// Moving in the positive Y direction
-		if (Ship.transform.position.y > ActiveChunk.boundriesY.y) {
+		if (Ship.transform.position.y > ActiveChunk.bounds.max.y) {
 			ActiveChunk = Chunks[new Vector3(ActiveChunk.x, ActiveChunk.y + 1, ActiveChunk.z)]
 			//GenerateChunk(ActiveChunk.x, (ActiveChunk.y + 1), ActiveChunk.z);
 		}
 		// Moving in the positive Z direction
-		if (Ship.transform.position.z > ActiveChunk.boundriesZ.y) {
+		if (Ship.transform.position.z > ActiveChunk.bounds.max.z) {
 			ActiveChunk = Chunks[new Vector3(ActiveChunk.x, ActiveChunk.y, ActiveChunk.z + 1)]
 			//GenerateChunk(ActiveChunk.x, ActiveChunk.y, (ActiveChunk.z + 1));
 		}
@@ -75,17 +87,17 @@ public class ChunkManager : Photon.MonoBehaviour
 		
 		
 		// Moving in the negative X direction
-		if (Ship.transform.position.x < ActiveChunk.boundriesX.x) {
+		if (Ship.transform.position.x < ActiveChunk.bounds.min.x) {
 			ActiveChunk = Chunks[new Vector3(ActiveChunk.x - 1, ActiveChunk.y, ActiveChunk.z)]
 			//GenerateChunk((ActiveChunk.x + 2), ActiveChunk.y, ActiveChunk.z);
 		}
 		// Moving in the negative Y direction
-		if (Ship.transform.position.y < ActiveChunk.boundriesY.x) {
+		if (Ship.transform.position.y < ActiveChunk.bounds.min.y) {
 			ActiveChunk = Chunks[new Vector3(ActiveChunk.x, ActiveChunk.y - 1, ActiveChunk.z)]
 			//GenerateChunk(ActiveChunk.x, (ActiveChunk.y + 1), ActiveChunk.z);
 		}
 		// Moving in the negative Z direction
-		if (Ship.transform.position.z < ActiveChunk.boundriesZ.x) {
+		if (Ship.transform.position.z < ActiveChunk.bounds.min.z) {
 			ActiveChunk = Chunks[new Vector3(ActiveChunk.x, ActiveChunk.y, ActiveChunk.z - 1)]
 			//GenerateChunk(ActiveChunk.x, ActiveChunk.y, (ActiveChunk.z + 1));
 		}
@@ -93,8 +105,8 @@ public class ChunkManager : Photon.MonoBehaviour
 	
 	void BuildChunk(Chunk chunk)
 	{
-		GameObject chunkIdentifier = new GameObject (chunk.position.x.ToString () + "" + chunk.position.y.ToString () + "" + chunk.position.z.ToString ());
-		chunkIdentifier.transform.position = new Vector3 (chunk.position.x * ChunkSize, chunk.position.y * ChunkSize, chunk.position.z * ChunkSize);
+		GameObject chunkIdentifier = new GameObject(string.Format("{0} {1} {2}", chunk.position.x, chunk.position.y, chunk.position.z));
+		chunkIdentifier.transform.position = new Vector3(chunk.position.x * ChunkSize, chunk.position.y * ChunkSize, chunk.position.z * ChunkSize);
 		
 		for (int i = 0; i < chunk.ChunkObjects.Length; i++) {
 			// Just build asteroids for now, alter WorldChunkObject to hold object name.
@@ -107,6 +119,9 @@ public class ChunkManager : Photon.MonoBehaviour
 	
 	void GenerateChunkBlock(Chunk centreChunk)
 	{
+    
+        // I haven't got a clue what the fuck this does?
+    
 		Vector3 centrePosition = centreChunk.position;
 		Vector3[] surroundingPositions = {
 			// +X Plane
@@ -169,16 +184,15 @@ public class ChunkManager : Photon.MonoBehaviour
 	void GenerateChunk(Vector3 position)
 	{
 		// Generate a new chunk only if the existing one doesnt exist.
-		Chunk outchunk;
-		bool chunkTest = Chunks.TryGetValue(position, out outchunk);
-		if (chunkTest == false)
-		{
-			Chunks[position] = Chunk.GenerateChunk(position, ChunkSize, 1);
-		}
-		
+		Chunk chunk;
+		if (!Chunks.TryGetValue(position, out chunk))
+        {
+			chunk = Chunk.GenerateChunk(position, ChunkSize, 1);
+            Chunks[position] = chunk;
+        }
 		
 		// Instantiate the chunk.
-		BuildChunk (Chunks[position]);
+		BuildChunk(chunk);              //Saves an extra dictionary lookup by saving the value from above
 	}
 	/// <summary>
 	/// Removes the given chunk, but only if it's been instantiated.
